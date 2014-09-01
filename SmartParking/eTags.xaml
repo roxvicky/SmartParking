@@ -38,13 +38,13 @@
 			<StackPanel>
                 <TextBlock x:Name="StatusOutput" TextWrapping="Wrap" Text="{Binding LocalizedResources.StatusAppStartup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,0,-12,0" FontSize="29.333"/>
                 <TextBlock TextWrapping="Wrap" Text="Floor"/>
-                <TextBox Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="TxtFloor" Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
                 <TextBlock TextWrapping="Wrap" Height="31">
                 	<Run Text="Zone"/>
                 	<LineBreak/>
                 	<Run/>
                 </TextBlock>
-                <TextBox Height="72" TextWrapping="Wrap"/>
+                <TextBox x:Name="TxtZone" Height="72" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="Location"/>
                 <Button x:Name="OneShotLocationButton" Click="OneShotLocation_Click" Content="get location"/>
                 <TextBlock x:Name="LatitudeTextBlock"/>
