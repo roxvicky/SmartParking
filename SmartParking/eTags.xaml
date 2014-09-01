@@ -36,24 +36,20 @@
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-                <TextBlock x:Name="StatusOutput" TextWrapping="Wrap" Margin="0,0,-12,0" FontSize="29.333" Text="Tag"/>
+                <TextBlock x:Name="StatusOutput" TextWrapping="Wrap" Text="{Binding LocalizedResources.StatusAppStartup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,0,-12,0" FontSize="29.333"/>
                 <TextBlock TextWrapping="Wrap" Text="Floor"/>
-                <TextBox x:Name="TxtFloor" Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+                <TextBox Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
                 <TextBlock TextWrapping="Wrap" Height="31">
                 	<Run Text="Zone"/>
                 	<LineBreak/>
                 	<Run/>
                 </TextBlock>
-<<<<<<< HEAD
-                <TextBox x:Name="Txtzone" Height="72" TextWrapping="Wrap"/>
-=======
                 <TextBox Height="72" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="Location"/>
                 <Button x:Name="OneShotLocationButton" Click="OneShotLocation_Click" Content="get location"/>
                 <TextBlock x:Name="LatitudeTextBlock"/>
                 <TextBlock x:Name="LongitudeTextBlock"/>
                 <TextBlock x:Name="StatusTextBlock"/>
->>>>>>> origin/userkittin
             </StackPanel>
 
 		</Grid>
