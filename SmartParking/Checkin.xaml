@@ -35,25 +35,13 @@
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-				<Image Source="NFC.png"/>
-                <TextBlock Margin="0" Style="{StaticResource PhoneTextSubtleStyle}" TextWrapping="Wrap" TextAlignment="Right" FontSize="29.333">
-					<Run Text="Status : "/>
-					<Run Text="Activated">
-						<Run.Foreground>
-							<SolidColorBrush Color="#9900FF00">
-								<SolidColorBrush.RelativeTransform>
-									<MatrixTransform Matrix="Identity"/>
-								</SolidColorBrush.RelativeTransform>
-								<SolidColorBrush.Transform>
-									<MatrixTransform Matrix="Identity"/>
-								</SolidColorBrush.Transform>
-							</SolidColorBrush>
-						</Run.Foreground>
-					</Run>
-                </TextBlock>
+				<Image Source="NFC.png" Height="254"/>
+                <TextBlock x:Name="LogStatus" TextWrapping="Wrap"/>
+                <TextBlock x:Name="Floor" TextWrapping="Wrap"/>
             </StackPanel>
 
 		</Grid>
-	</Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="570,74,-102,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+    </Grid>
 
 </phone:PhoneApplicationPage>
