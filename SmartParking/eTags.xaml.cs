@@ -55,7 +55,7 @@ namespace SmartParking
         public void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
           
-            var spRecord = new NdefTextRecord{Text = TxtFloor.Text + TxtZone.Text, LanguageCode = "en-US" };
+            var spRecord = new NdefTextRecord{Text = "Floor 3 Zone A" , LanguageCode = "en" };
             var msg = new NdefMessage { spRecord };
             PublishRecord(spRecord, true);
         }
