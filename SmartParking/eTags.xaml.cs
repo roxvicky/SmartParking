@@ -20,7 +20,7 @@ using SmartParking.Resources;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using System.IO.IsolatedStorage;
-using Windows.Devices.*
+using Windows.Devices;
 
 
 

@@ -44,13 +44,7 @@ namespace SmartParking
 
         
 
-        private void SetBoolStatus(string newStatus)
-        {
-            // Update the status output UI element in the UI thread
-            // (some of the callbacks are in a different thread that wouldn't be allowed
-            // to modify the UI thread)
-            Dispatcher.BeginInvoke(() => { if (BoolStatus != null) BoolStatus.Text = newStatus; });
-        }
+        
 
         private void SetLogStatus(string newStatus)
         {
@@ -72,7 +66,7 @@ namespace SmartParking
             _device = Windows.Networking.Proximity.ProximityDevice.GetDefault();
             if (_device != null)
             {
-                _subscriptionIdNdef = _device.SubscribeForMessage("NDEF", MessageReceivedHandler);
+                _subscriptionIdNdef = _device.SubscribeForMessage("WindowsMime", MessageReceivedHandler);
 
             }
             
@@ -94,13 +88,13 @@ namespace SmartParking
         }
 
 
-        private async void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
+        private  void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
 
 
             var buffer = message.Data.ToArray();
             int mimesize = 0;
-            //search first '\0' charactere
+            //search first '\0' character
             for (mimesize = 0; mimesize < 256 && buffer[mimesize] != 0; ++mimesize)
             {
             };
