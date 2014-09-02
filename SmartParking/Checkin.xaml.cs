@@ -31,7 +31,7 @@ namespace SmartParking
     {
         private ProximityDevice _device;
         private long _subscriptionIdNdef;
-        private long _publishingMessageId;
+        //private long _publishingMessageId;
         
 
 

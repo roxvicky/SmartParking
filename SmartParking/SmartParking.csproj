@@ -26,7 +26,7 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <ExpressionBlendVersion>12.0.50320.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
     <TargetFrameworkProfile />
     <DefaultLanguage>en-US</DefaultLanguage>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -201,6 +201,9 @@
     <Content Include="Assets8\AppBar\feature.search.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets9\AppBar\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -263,8 +266,9 @@
     <Reference Include="Microsoft.Expression.Drawing" />
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Phone.Controls.Toolkit">
-      <HintPath>..\packages\WPtoolkit.Kinnara.4.2014.04.23\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPtoolkit.Kinnara.4.2014.08.05\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Toolkit.Testing">
       <HintPath>..\packages\WPToolkitTestFx.4.2012.11.14\lib\wp8\Microsoft.Phone.Toolkit.Testing.dll</HintPath>

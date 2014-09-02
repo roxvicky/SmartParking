@@ -101,7 +101,14 @@
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
 				</Button>
-			</Grid>
+                <Button Content="test" HorizontalAlignment="Left" Margin="116,39,0,0" Grid.Row="2" VerticalAlignment="Top">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ec:NavigateToPageAction TargetPage="/Page2.xaml"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </Grid>
 		</Grid>
 
 	</Grid>
