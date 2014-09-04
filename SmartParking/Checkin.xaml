@@ -37,7 +37,7 @@
 			<StackPanel>
 				<Image Source="NFC.png" Height="254"/>
                 <TextBlock x:Name="LogStatus" TextWrapping="Wrap"/>
-                <TextBlock x:Name="Floor" TextWrapping="Wrap"/>
+                <TextBlock x:Name="FloorStatus" TextWrapping="Wrap"/>
             </StackPanel>
 
 		</Grid>

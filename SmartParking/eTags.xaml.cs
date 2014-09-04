@@ -20,6 +20,7 @@ using SmartParking.Resources;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using System.IO.IsolatedStorage;
+using Windows.Devices;
 
 
 
@@ -54,10 +55,26 @@ namespace SmartParking
 
         public void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
-          
-            var spRecord = new NdefTextRecord{Text = TxtFloor.Text + TxtZone.Text, LanguageCode = "en-US" };
-            var msg = new NdefMessage { spRecord };
-            PublishRecord(spRecord, true);
+            var str = TxtFloor.Text + " " + TxtZone.Text + " " + LatitudeTextBlock.Text + " " + LongitudeTextBlock.Text;
+            var fRecord = new NdefTextRecord { Text = str, LanguageCode = "en-US" };
+           // var zRecord = new NdefTextRecord { Text = TxtZone.Text, LanguageCode = "en-US" };
+           // var latRecord = new NdefTextRecord { Text = LatitudeTextBlock.Text, LanguageCode = "en-US" };
+           // var longRecord = new NdefTextRecord { Text = LongitudeTextBlock.Text, LanguageCode = "en-US" };
+
+            var msg = new NdefMessage {fRecord};
+
+            //msg.Add(fRecord);
+           // msg.Add(zRecord);
+          //  msg.Add(latRecord);
+         //   msg.Add(longRecord);
+
+            _device.PublishBinaryMessage(
+                "NDEF:WriteTag",
+                msg.ToByteArray().AsBuffer(),
+                MessageWrittenHandler);
+
+            SetStatusOutput("Message written");
+            //PublishRecord(spRecord, true);
         }
        
 
@@ -98,23 +115,23 @@ namespace SmartParking
             });
         }
 
-        private void PublishRecord(NdefRecord spRecord, bool writeToTag)
-        {
-            if (_device == null) return;
-            // Make sure we're not already publishing another message
-            StopPublishingMessage(false);
-           // var spRecord = new NdefTextRecord { Text = "Floor 3 Zone A", LanguageCode = "en" };
-            // Wrap the NDEF record into an NDEF message
-            var msg = new NdefMessage { spRecord };
-            // Convert the NDEF message to a byte array
-  //          var msg = NdefMessage.ToByteArray();
-            // Publish the NDEF message to a tag or to another device, depending on the writeToTag parameter
-            // Save the publication ID so that we can cancel publication later
-            _publishingMessageId = _device.PublishBinaryMessage(("NDEF:WriteTag"), msg.ToByteArray().AsBuffer(), MessageWrittenHandler);
-            // Update status text for UI
-            SetStatusOutput(string.Format((writeToTag ? AppResources.StatusWriteToTag : AppResources.StatusWriteToDevice),  _publishingMessageId));
+  //      private void PublishRecord(NdefRecord spRecord, bool writeToTag)
+  //      {
+  //          if (_device == null) return;
+  //          // Make sure we're not already publishing another message
+  //          StopPublishingMessage(false);
+           
+  //          // Wrap the NDEF record into an NDEF message
+  //          var msg = new NdefMessage { spRecord };
+  //          // Convert the NDEF message to a byte array
+  ////          var msg = NdefMessage.ToByteArray();
+  //          // Publish the NDEF message to a tag or to another device, depending on the writeToTag parameter
+  //          // Save the publication ID so that we can cancel publication later
+  //          _publishingMessageId = _device.PublishBinaryMessage(("NDEF:WriteTag"), msg.ToByteArray().AsBuffer(), MessageWrittenHandler);
+  //          // Update status text for UI
+  //          SetStatusOutput(string.Format((writeToTag ? AppResources.StatusWriteToTag : AppResources.StatusWriteToDevice),  _publishingMessageId));
 
-        }
+  //      }
         private void MessageWrittenHandler(ProximityDevice sender, long messageId)
         {
             // Message was written successfully - inform the user
