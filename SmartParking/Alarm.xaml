@@ -30,10 +30,6 @@
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-                <TextBlock TextWrapping="Wrap" Name="ttName" Text="Name"/>
-                <TextBox Height="72" TextWrapping="Wrap" Name="txtName" />
-                <TextBlock TextWrapping="Wrap" Name="ttContent"  Text="Detail"/>
-                <TextBox Height="183" TextWrapping="Wrap" Name="txtContent" />
 
 
                 <toolkit:DatePicker Name="datePicker1"/>
