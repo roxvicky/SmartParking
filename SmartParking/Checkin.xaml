@@ -41,6 +41,7 @@
             </StackPanel>
 
 		</Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="570,74,-102,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 
 </phone:PhoneApplicationPage>
