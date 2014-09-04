@@ -263,15 +263,6 @@
     <Reference Include="DIS.WindowsPhone.Toolkit">
       <HintPath>..\packages\DisWpToolkit.1.1.1\lib\sl4-wp71\DIS.WindowsPhone.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.Client">
-      <HintPath>..\packages\ArcGISWindowsPhone-Core.10.1.1.11\lib\sl4-wp71\ESRI.ArcGIS.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ESRI.ArcGIS.Client.Bing">
-      <HintPath>..\packages\ArcGISWindowsPhone-Bing.10.1.1.11\lib\sl4-wp71\ESRI.ArcGIS.Client.Bing.dll</HintPath>
-    </Reference>
-    <Reference Include="JeffWilcox.Maps">
-      <HintPath>..\packages\JeffWilcox.Maps.1.1\lib\sl4-windowsphone71\JeffWilcox.Maps.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Advertising.Mobile, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Advertising.Mobile.UI, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Drawing" />
