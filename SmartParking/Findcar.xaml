@@ -33,7 +33,7 @@
 			<StackPanel>
 				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Where is  my car?" VerticalAlignment="Top" Width="456"/>
 				<Toolkit:MapChildControl>
-					<maps:Map HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" Width="455" LandmarksEnabled="True" TabIndex="1123229" ZoomLevel="16" CartographicMode="Hybrid">
+					<maps:Map x:Name="maps_sp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" Width="455" LandmarksEnabled="True" TabIndex="1123228" ZoomLevel="16" CartographicMode="Hybrid">
 						<maps:Map.Center>
 							<Location:GeoCoordinate Altitude="NaN" Course="NaN" HorizontalAccuracy="NaN" Longitude="100.492556" Latitude="13.652071" Speed="NaN" VerticalAccuracy="NaN"/>
 						</maps:Map.Center>
