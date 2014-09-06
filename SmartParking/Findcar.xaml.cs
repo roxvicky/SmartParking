@@ -16,24 +16,37 @@ namespace SmartParking
 {
     public partial class Findcar : PhoneApplicationPage
     {
+        private static string baseUri = "bingmaps:?";
+
         public Findcar()
         {
-            InitializeComponent();
+              InitializeComponent();
+              LaunchMap(Checkin.Latitud_do, Checkin.Longtitude_do, 20);
         }
 
-        public static GeoCoordinate ConvertGeocoordinate(Geocoordinate geocoordinate)
+        public static void LaunchMap(double latitude, double longitude, int zoom)
         {
-            return new GeoCoordinate
-                (
-                geocoordinate.Latitude,
-                geocoordinate.Longitude,
-                geocoordinate.Altitude ?? Double.NaN,
-                geocoordinate.Accuracy,
-                geocoordinate.AltitudeAccuracy ?? Double.NaN,
-                geocoordinate.Speed ?? Double.NaN,
-                geocoordinate.Heading ?? Double.NaN
-                );
+            string uri = string.Format("{0}cp={1:N5}~{2:N5}&lvl={3}", baseUri, latitude, longitude, zoom);
+
+            Launch(new Uri(uri));
         }
+
+        
+        private static async void Launch(Uri uri)
+        {
+            // Launch the URI
+            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+            /*if (!success)
+            {
+                //Failed to launch maps 
+                var msg = new MessageDialog("Failed to launch maps app.");
+                await msg.ShowAsync();
+            }*/
+        }
+
+
+        
 
     }
 }

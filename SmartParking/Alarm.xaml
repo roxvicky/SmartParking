@@ -34,7 +34,7 @@
 
                 <toolkit:DatePicker Name="datePicker1"/>
                 <toolkit:TimePicker Name="timePicker1"/>
-                <toolkit:ToggleSwitch Content="Alarm" Name="btnAdd" Click="btnAdd_Click"/>
+                <toolkit:ToggleSwitch Content="Alarm" Name="btnAdd"/>
 
 
             </StackPanel>

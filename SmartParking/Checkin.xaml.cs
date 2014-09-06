@@ -20,12 +20,8 @@ using SmartParking.Resources;
 using System.Diagnostics;
 
 
-
-
 namespace SmartParking
 {
-
-
 
     public partial class Checkin : PhoneApplicationPage
     {
@@ -33,7 +29,9 @@ namespace SmartParking
         private long _subscriptionIdNdef;
         private long _publishingMessageId;
 
-
+        public static double Latitud_do { get; set; }
+        public static double Longtitude_do { get; set; }
+        
 
         public Checkin()
         {
@@ -41,10 +39,6 @@ namespace SmartParking
             InitializeProximityDevice();
 
         }
-
-
-
-
 
         private void SetLogStatus(string newStatus)
         {
@@ -57,7 +51,6 @@ namespace SmartParking
         private void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
             MessageBox.Show("The green activated symbol describes that your check-in is successful");
-            // TODO: Add event handler implementation here.
         }
 
 
@@ -73,37 +66,8 @@ namespace SmartParking
         }
 
 
-
-        // Write the message to the tag
-
-        //private void SubscribeNdef(object sender, RoutedEventArgs e)
-        //{
-        //    // Only subscribe for messages if no NDEF subscription is already active
-        //    if (_subscriptionIdNdef != 0) return;
-        //    // Ask the proximity device to inform us about any kind of NDEF message received from
-        //    // another device or tag.
-        //    // Store the subscription ID so that we can cancel it later.ll
-        //    _subscriptionIdNdef = _device.SubscribeForMessage("WindowsMime", MessageReceivedHandler);
-
-        //}
-
-
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
-        //    var buffer = message.Data.ToArray();
-        //    int mimesize = 0;
-        //    //search first '\0' charactere
-        //    for (mimesize = 0; mimesize < 256 && buffer[mimesize] != 0; ++mimesize)
-        //    {
-        //    };
-
-        //    //extract mimetype
-        //    var mimeType = Encoding.UTF8.GetString(buffer, 0, mimesize);
-
-        //    //convert data to string. This traitement depend on mimetype value.
-        //    var data = Encoding.UTF8.GetString(buffer, 256, buffer.Length - 256);
-
-
             var rawMsg = message.Data.ToArray();
             var ndefMessage = NdefMessage.FromByteArray(rawMsg);
 
@@ -119,7 +83,10 @@ namespace SmartParking
                     //var str = textRecord.Text;
                     string[] str = textRecord.Text.Split(' ');
                     var latitude = str[2];
-                    var longtitude = str[3];                    
+                    Latitud_do = double.Parse(latitude);
+                    var longtitude = str[3];
+                    Longtitude_do = double.Parse(longtitude);
+      
                     SetLogStatus("Floor: " + str[0] + " Zone: " + str[1] + " Latitude: " + latitude + " Longtitude: " + longtitude);
 
                 }
