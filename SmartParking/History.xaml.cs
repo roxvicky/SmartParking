@@ -7,6 +7,10 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.IO.IsolatedStorage;   
+using System.Linq;
+
+
 
 namespace SmartParking
 {
@@ -15,6 +19,8 @@ namespace SmartParking
         public History()
         {
             InitializeComponent();
-        }
+            
+           
+             }
     }
 }
