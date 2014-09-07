@@ -31,6 +31,8 @@ namespace SmartParking
 
         public static double Latitud_do { get; set; }
         public static double Longtitude_do { get; set; }
+        public static string Zone_st { get; set; }
+        public static string Floor_st { get; set; }
         
 
         public Checkin()
@@ -79,13 +81,14 @@ namespace SmartParking
                 if (NdefTextRecord.IsRecordType(record))
                 {
                     // Convert and extract URI info
-                    var textRecord = new NdefTextRecord(record);
-                    //var str = textRecord.Text;
+                    var textRecord = new NdefTextRecord(record);                
                     string[] str = textRecord.Text.Split(' ');
                     var latitude = str[2];
                     Latitud_do = double.Parse(latitude);
                     var longtitude = str[3];
                     Longtitude_do = double.Parse(longtitude);
+                    Zone_st = str[1];
+                    Floor_st = str[0];
       
                     SetLogStatus("Floor: " + str[0] + " Zone: " + str[1] + " Latitude: " + latitude + " Longtitude: " + longtitude);
 

@@ -34,15 +34,8 @@ namespace SmartParking
         
         private static async void Launch(Uri uri)
         {
-            // Launch the URI
             var success = await Windows.System.Launcher.LaunchUriAsync(uri);
 
-            /*if (!success)
-            {
-                //Failed to launch maps 
-                var msg = new MessageDialog("Failed to launch maps app.");
-                await msg.ShowAsync();
-            }*/
         }
 
 
