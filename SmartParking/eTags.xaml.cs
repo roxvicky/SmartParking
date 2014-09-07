@@ -57,16 +57,8 @@ namespace SmartParking
         {
             var str = TxtFloor.Text + " " + TxtZone.Text + " " + LatitudeTextBlock.Text + " " + LongitudeTextBlock.Text;
             var fRecord = new NdefTextRecord { Text = str, LanguageCode = "en-US" };
-           // var zRecord = new NdefTextRecord { Text = TxtZone.Text, LanguageCode = "en-US" };
-           // var latRecord = new NdefTextRecord { Text = LatitudeTextBlock.Text, LanguageCode = "en-US" };
-           // var longRecord = new NdefTextRecord { Text = LongitudeTextBlock.Text, LanguageCode = "en-US" };
 
             var msg = new NdefMessage {fRecord};
-
-            //msg.Add(fRecord);
-           // msg.Add(zRecord);
-          //  msg.Add(latRecord);
-         //   msg.Add(longRecord);
 
             _device.PublishBinaryMessage(
                 "NDEF:WriteTag",
@@ -74,7 +66,6 @@ namespace SmartParking
                 MessageWrittenHandler);
 
             SetStatusOutput("Message written");
-            //PublishRecord(spRecord, true);
         }
        
 
