@@ -82,6 +82,7 @@ namespace SmartParking
                     var textRecord = new NdefTextRecord(record);
                     //var str = textRecord.Text;
                     string[] str = textRecord.Text.Split(' ');
+
                     var latitude = str[2];
                     Latitud_do = double.Parse(latitude);
                     var longtitude = str[3];

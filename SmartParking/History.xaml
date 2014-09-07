@@ -12,15 +12,15 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
-	<phone:PhoneApplicationPage.ApplicationBar>
-		<shell:ApplicationBar>
-			<shell:ApplicationBar.MenuItems>
-				<shell:ApplicationBarMenuItem IsEnabled="True" Text="Delete all"/>
-			</shell:ApplicationBar.MenuItems>
-			<shell:ApplicationBarIconButton IconUri="/Assets7/AppBar/delete.png" IsEnabled="True" Text="Delete"/>
-			<shell:ApplicationBarIconButton IconUri="/Assets8/AppBar/feature.search.png" IsEnabled="True" Text="Search"/>
-		</shell:ApplicationBar>
-	</phone:PhoneApplicationPage.ApplicationBar>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem IsEnabled="True" Text="Delete all"/>
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton IconUri="/Assets7/AppBar/delete.png" IsEnabled="True" Text="Delete"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets8/AppBar/feature.search.png" IsEnabled="True" Text="Search"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -37,21 +37,24 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-        	<Grid ShowGridLines="True" HorizontalAlignment="Right" Width="456">
-        		<Grid.ColumnDefinitions>
-        			<ColumnDefinition Width="69*"/>
-        			<ColumnDefinition Width="83*"/>
-        			<ColumnDefinition Width="304*"/>
-        		</Grid.ColumnDefinitions>
-        		<Grid.RowDefinitions>
-        			<RowDefinition Height="68*"/>
-        			<RowDefinition Height="539*"/>
-        		</Grid.RowDefinitions>
-        		<StackPanel Grid.Row="1" Grid.ColumnSpan="3"/>
-        		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Where?" VerticalAlignment="Top" Height="63" Width="69" Margin="2,9,0,0" Grid.RowSpan="2" Grid.Column="2"/>
-        		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Grid.Column="1" Height="68" Width="69" Margin="5,10,0,0" Grid.RowSpan="2"/>
-        		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Height="63" Width="69" Grid.ColumnSpan="2" Margin="5,10,0,0" Grid.RowSpan="2"/>
-        	</Grid>
+            <Grid ShowGridLines="True" HorizontalAlignment="Right" Width="456">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69*"/>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="76*"/>
+                    <ColumnDefinition Width="85*"/>
+                    <ColumnDefinition Width="143*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="68*"/>
+                    <RowDefinition Height="539*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="5"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Floor" VerticalAlignment="Top" Height="63" Width="69" Margin="2,9,0,0" Grid.RowSpan="2" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Grid.Column="1" Height="68" Width="69" Margin="5,10,0,0" Grid.RowSpan="2"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Height="63" Width="69" Grid.ColumnSpan="2" Margin="5,10,0,0" Grid.RowSpan="2"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zone" VerticalAlignment="Top" Height="63" Width="69" Margin="10,9,0,0" Grid.RowSpan="2" Grid.Column="3"/>
+            </Grid>
 
         </Grid>
     </Grid>
