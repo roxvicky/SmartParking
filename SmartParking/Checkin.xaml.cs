@@ -83,6 +83,7 @@ namespace SmartParking
                     // Convert and extract URI info
                     var textRecord = new NdefTextRecord(record);                
                     string[] str = textRecord.Text.Split(' ');
+
                     var latitude = str[2];
                     Latitud_do = double.Parse(latitude);
                     var longtitude = str[3];
