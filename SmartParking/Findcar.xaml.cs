@@ -20,7 +20,7 @@ namespace SmartParking
 
         public Findcar()
         {
-              InitializeComponent();
+            //  InitializeComponent();
               LaunchMap(Checkin.Latitud_do, Checkin.Longtitude_do, 20);
         }
 

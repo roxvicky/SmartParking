@@ -54,6 +54,7 @@ namespace SmartParking
               // Determine which recurrence radio button is checked.
               RecurrenceInterval recurrence = RecurrenceInterval.None;
               if (dailyRadioButton.IsChecked == true)
+
               {
                   recurrence = RecurrenceInterval.Daily;
               }

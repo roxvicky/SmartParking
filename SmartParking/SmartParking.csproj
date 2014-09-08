@@ -258,9 +258,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AWSSDK">
-      <HintPath>..\packages\AWSSDK.2.2.4.0\lib\windowsphone8\AWSSDK.dll</HintPath>
-    </Reference>
     <Reference Include="Cimbalino.Phone.Toolkit">
       <HintPath>..\packages\Cimbalino.Phone.Toolkit.3.2.3\lib\wp8\Cimbalino.Phone.Toolkit.dll</HintPath>
     </Reference>
@@ -291,15 +288,6 @@
     <Reference Include="NdefLibraryWp">
       <HintPath>..\packages\NdefLibraryExtension.3.0.2\lib\wp8\NdefLibraryWp.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http">
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Interactivity" />
   </ItemGroup>
   <ItemGroup>
@@ -328,9 +316,4 @@
   </Target>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' == ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' != ''" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
 </Project>

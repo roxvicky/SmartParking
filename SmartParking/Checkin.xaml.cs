@@ -27,7 +27,7 @@ namespace SmartParking
     {
         private ProximityDevice _device;
         private long _subscriptionIdNdef;
-        private long _publishingMessageId;
+        //private long _publishingMessageId;
 
         public static double Latitud_do { get; set; }
         public static double Longtitude_do { get; set; }
@@ -67,6 +67,15 @@ namespace SmartParking
 
         }
 
+        private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage mes
+                    // Convert and extract URI info
+                    var textRecord = new NdefTextRecord(record);                
+                    string[] str = textRecord.Text.Split(' ');
+
+                    var latitude = str[2];
+                    Latitud_do = double.Parse(latitude);
+                    var longtitude = str[3];
+
 
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
@@ -91,9 +100,11 @@ namespace SmartParking
                     Zone_st = str[1];
                     Floor_st = str[0];
       
-                    SetLogStatus("Floor: " + str[0] + " Zone: " + str[1] + " Latitude: " + latitude + " Longtitude: " + longtitude);
+                    SetLogStatus("Floor: " + str[0] + " Zone: " + str[1] 
+                               + " Latitude: " + latitude + " Longtitude: " + longtitude);
 
                 }
+
             }
           }
      }

@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 
-
 namespace SmartParking
 {
 
     public class HistoryDataContext:DataContext
     {
-        public static string DBConnectionString = "Data Source=isostore:/ToDo.sdf";
+        public static string DBConnectionString = "Data Source=isostore:/History.sdf";
         public HistoryDataContext(string DBConnectionString)
             : base(DBConnectionString)
         {
