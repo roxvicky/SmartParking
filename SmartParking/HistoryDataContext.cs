@@ -25,7 +25,7 @@ namespace SmartParking
         {
     }
 
-        public Table<HistoryDB> history
+       public Table<HistoryDB> history
         {
             get
             {
