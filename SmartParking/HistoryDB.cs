@@ -19,7 +19,7 @@ using System.Data.Linq;
 namespace SmartParking
 {
     [Table]
-    public class HistoryDB
+    public class HistoryDB 
     {
 
         [Column(CanBeNull = false)]

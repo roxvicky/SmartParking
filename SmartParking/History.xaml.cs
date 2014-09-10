@@ -25,7 +25,11 @@ namespace SmartParking
         public History()
         {
             InitializeComponent();
+           // createDB();
+            
 
+           
+            
            
         }
 
@@ -41,6 +45,7 @@ namespace SmartParking
                 if (historylog.DatabaseExists() == false)
                 {
                     historylog.CreateDatabase();
+                    addDataDB();
                 }
             }
 
@@ -52,8 +57,8 @@ namespace SmartParking
             {
                 HistoryDB hdb = new HistoryDB
                 {
-                    Date = DateTime.Today,
-                    Time = DateTime.Now.TimeOfDay,
+                   // Date = DateTime.Today,
+                   // Time = DateTime.Now.TimeOfDay,
                     Zone = Checkin.Zone_st,
                     Floor = Checkin.Floor_st,
                     location_latitude = Checkin.Latitud_do,
@@ -61,6 +66,8 @@ namespace SmartParking
                 };
                 historylog.history.InsertOnSubmit(hdb);
                 historylog.SubmitChanges();
+                GetHistoryLog();
+
             }
         }
         public IList<HistoryDB> GetHistoryLog()
