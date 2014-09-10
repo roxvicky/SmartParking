@@ -32,7 +32,6 @@
 		<StackPanel Grid.Row="0" Margin="12,17,0,28">
 			<TextBlock Text="Admin mode" Style="{StaticResource PhoneTextNormalStyle}"/>
 			<TextBlock Text="Edit Tags" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-			<ProgressBar Height="10"/>
 		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -42,7 +41,7 @@
 				<TextBlock TextWrapping="Wrap" Text="Floor"/>
                 
                 <TextBox x:Name="TxtFloor" Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-				<TextBlock TextWrapping="Wrap" Height="31">
+                <TextBlock TextWrapping="Wrap" Height="31">
 					<Run Text="Zone"/>
 					<LineBreak/>
 					<Run/>
@@ -53,8 +52,6 @@
 				<TextBlock x:Name="LatitudeTextBlock"/>
 				<TextBlock x:Name="LongitudeTextBlock"/>
 				<TextBlock x:Name="StatusTextBlock"/>
-				<Popup/>
-                <phone:LongListSelector Height="100" Width="100"/>
             </StackPanel>
 
 		</Grid>
