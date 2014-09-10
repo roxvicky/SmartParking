@@ -29,16 +29,7 @@ namespace SmartParking
            
         }
 
-        public IList<HistoryDB> GetHistoryLog()
-        {
-            IList<HistoryDB> HistoryList = null;
-            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
-            {
-                IQueryable<HistoryDB> query =    from history in historylog.history select history;
-                HistoryList = query.ToList();
-            }
-            return HistoryList;
-        }
+       
 
         public void createDB()
         {
@@ -68,6 +59,16 @@ namespace SmartParking
                 historylog.history.InsertOnSubmit(hdb);
                 historylog.SubmitChanges();
             }
+        }
+        public IList<HistoryDB> GetHistoryLog()
+        {
+            IList<HistoryDB> HistoryList = null;
+            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
+            {
+                IQueryable<HistoryDB> query = from histoy in historylog.history select histoy;
+                HistoryList = query.ToList();
+            }
+            return HistoryList;
         }
     }
 }
