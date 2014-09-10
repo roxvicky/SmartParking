@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit"
+    
     x:Class="SmartParking.eTags"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -36,20 +38,23 @@
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-                <TextBlock x:Name="StatusOutput" TextWrapping="Wrap" Text="{Binding LocalizedResources.StatusAppStartup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,0,-12,0" FontSize="29.333"/>
-                <TextBlock TextWrapping="Wrap" Text="Floor"/>
+				<TextBlock x:Name="StatusOutput" TextWrapping="Wrap" Text="{Binding LocalizedResources.StatusAppStartup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,0,-12,0" FontSize="29.333"/>
+				<TextBlock TextWrapping="Wrap" Text="Floor"/>
+            
                 <TextBox x:Name="TxtFloor" Height="72" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-                <TextBlock TextWrapping="Wrap" Height="31">
-                	<Run Text="Zone"/>
-                	<LineBreak/>
-                	<Run/>
-                </TextBlock>
-                <TextBox x:Name="TxtZone" Height="72" TextWrapping="Wrap"/>
-                <TextBlock TextWrapping="Wrap" Text="Location"/>
-                <Button x:Name="OneShotLocationButton" Click="OneShotLocation_Click" Content="get location"/>
-                <TextBlock x:Name="LatitudeTextBlock"/>
-                <TextBlock x:Name="LongitudeTextBlock"/>
-                <TextBlock x:Name="StatusTextBlock"/>
+				<TextBlock TextWrapping="Wrap" Height="31">
+					<Run Text="Zone"/>
+					<LineBreak/>
+					<Run/>
+				</TextBlock>
+				<TextBox x:Name="TxtZone" Height="72" TextWrapping="Wrap"/>
+				<TextBlock TextWrapping="Wrap" Text="Location"/>
+				<Button x:Name="OneShotLocationButton" Click="OneShotLocation_Click" Content="get location"/>
+				<TextBlock x:Name="LatitudeTextBlock"/>
+				<TextBlock x:Name="LongitudeTextBlock"/>
+				<TextBlock x:Name="StatusTextBlock"/>
+				<Popup/>
+                <phone:LongListSelector Height="100" Width="100"/>
             </StackPanel>
 
 		</Grid>

@@ -55,7 +55,7 @@ namespace SmartParking
 
         public void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
-            var str = TxtFloor.Text + " " + TxtZone.Text + " " + LatitudeTextBlock.Text + " " + LongitudeTextBlock.Text;
+            var str = TxtFloor.Text + "|" + TxtZone.Text + "|" + LatitudeTextBlock.Text + "|" + LongitudeTextBlock.Text;
             var fRecord = new NdefTextRecord { Text = str, LanguageCode = "en-US" };
 
             var msg = new NdefMessage {fRecord};
@@ -174,6 +174,7 @@ namespace SmartParking
                 }
             }
         }
+
 
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

@@ -84,7 +84,7 @@ namespace SmartParking
                 {
                     // Convert and extract URI info
                     var textRecord = new NdefTextRecord(record);                
-                    string[] str = textRecord.Text.Split(' ');
+                    string[] str = textRecord.Text.Split('|');
 
 
 
