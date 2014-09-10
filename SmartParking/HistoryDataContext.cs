@@ -17,7 +17,7 @@ using System.Data.Linq;
 namespace SmartParking
 {
 
-    public class HistoryDataContext:DataContext
+    public class HistoryDataContext:DataContext 
     {
         public static string DBConnectionString = "Data Source=isostore:/History.sdf";
         public HistoryDataContext(string DBConnectionString)

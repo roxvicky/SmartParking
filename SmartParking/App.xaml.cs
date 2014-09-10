@@ -22,7 +22,18 @@ namespace SmartParking
         /// Constructor for the Application object.
         /// </summary>
         public App()
+
+
         {
+
+            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
+            {
+                if (historylog.DatabaseExists() == false)
+                {
+                    historylog.CreateDatabase();
+                }
+            }
+
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 

@@ -32,6 +32,7 @@ namespace SmartParking
         public static double Longtitude_do { get; set; }
         public static string Floor_st { get; set; }
         public static string Zone_st { get; set; }
+
         
 
         public Checkin()
@@ -99,6 +100,8 @@ namespace SmartParking
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
                     SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
+                     
+                    
 
                 }
             }

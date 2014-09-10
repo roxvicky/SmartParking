@@ -13,31 +13,29 @@ using System.Data.Linq.Mapping;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Text;
-
+using System.Data.Linq;
 
 
 namespace SmartParking
 {
 
-
     public partial class History : PhoneApplicationPage
     {
-
+        private readonly HistoryDataContext historylog; 
         public History()
         {
             InitializeComponent();
+           // createDB();
+            
+
+           
+            
            
         }
 
-        public IList<HistoryDB> GetHistoryLog()
+        public HistoryDataContext Log
         {
-            IList<HistoryDB> HistoryList = null;
-            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
-            {
-                IQueryable<HistoryDB> query =    from history in historylog.history select history;
-                HistoryList = query.ToList();
-            }
-            return HistoryList;
+            get { return historylog; }
         }
 
         public void createDB()
@@ -47,6 +45,7 @@ namespace SmartParking
                 if (historylog.DatabaseExists() == false)
                 {
                     historylog.CreateDatabase();
+                    addDataDB();
                 }
             }
 
@@ -58,8 +57,8 @@ namespace SmartParking
             {
                 HistoryDB hdb = new HistoryDB
                 {
-                    Date = DateTime.Today,
-                    Time = DateTime.Now.TimeOfDay,
+                   // Date = DateTime.Today,
+                   // Time = DateTime.Now.TimeOfDay,
                     Zone = Checkin.Zone_st,
                     Floor = Checkin.Floor_st,
                     location_latitude = Checkin.Latitud_do,
@@ -67,8 +66,22 @@ namespace SmartParking
                 };
                 historylog.history.InsertOnSubmit(hdb);
                 historylog.SubmitChanges();
+                GetHistoryLog();
+
             }
         }
+        public IList<HistoryDB> GetHistoryLog()
+        {
+            IList<HistoryDB> HistoryList = null;
+            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
+            {
+                IQueryable<HistoryDB> query = from histoy in historylog.history select histoy;
+                HistoryList = query.ToList();
+            }
+            return HistoryList ;
+        }
+
+        
     }
 }
 
