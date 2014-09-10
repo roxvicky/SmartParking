@@ -52,7 +52,7 @@ namespace SmartParking
 
         private void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("The green activated symbol describes that your check-in is successful");
+            MessageBox.Show(" ");
         }
 
 
