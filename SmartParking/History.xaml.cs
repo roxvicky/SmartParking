@@ -26,7 +26,7 @@ namespace SmartParking
         public History()
         {
             InitializeComponent();
-           /* 
+           
             IList<HistoryDB> HistoryLog = this.GetHistoryLog();
             StringBuilder details = new StringBuilder();
 
@@ -41,10 +41,10 @@ namespace SmartParking
             updatevalue.No = Convert.ToInt16(notextbox.Text);
             updatevalue.Address = addresstxtbox.Text;
             studentdb.SubmitChanges();
-            */
+            
         }
 
-        public IList<HistoryDB> GetHistoryLog()
+      public IList<HistoryDB> GetHistoryLog()
         {
             IList<HistoryDB> HistoryList = null;
             using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
