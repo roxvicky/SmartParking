@@ -168,10 +168,7 @@ namespace SmartParking
                     // the application does not have the right capability or the location master switch is off
                     StatusTextBlock.Text = "location  is disabled in phone settings.";
                 }
-                //else
-                {
-                    // something else happened acquring the location
-                }
+
             }
         }
 
