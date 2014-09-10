@@ -27,7 +27,6 @@ namespace SmartParking
     {
         private ProximityDevice _device;
         private long _subscriptionIdNdef;
-        private long _publishingMessageId;
 
         public static double Latitud_do { get; set; }
         public static double Longtitude_do { get; set; }
@@ -37,8 +36,9 @@ namespace SmartParking
 
         public Checkin()
         {
-            InitializeComponent();
             InitializeProximityDevice();
+            InitializeComponent();
+            
 
         }
 
@@ -47,9 +47,9 @@ namespace SmartParking
             Dispatcher.BeginInvoke(() => { if (LogStatus != null) LogStatus.Text = newStatus; });
         }
 
-        private void SetFloorStatus(string newStatus)
+        private void SetLocationStatus(string newStatus)
         {
-            Dispatcher.BeginInvoke(() => { if (FloorStatus != null) FloorStatus.Text = newStatus; });
+            Dispatcher.BeginInvoke(() => { if (LocationStatus != null) LocationStatus.Text = newStatus; });
         }
 
 
@@ -87,7 +87,7 @@ namespace SmartParking
                     // Convert and extract URI info
                     var textRecord = new NdefTextRecord(record);
                     //var str = textRecord.Text;
-                    string[] str = textRecord.Text.Split(' ');
+                    string[] str = textRecord.Text.Split('|');
 
                     var latitude = str[2];
                     Latitud_do = double.Parse(latitude);
@@ -97,8 +97,8 @@ namespace SmartParking
                     var Zone_st = str[1];
 
       
-                    SetLogStatus("Floor: " + str[0] + " Zone: " + str[1] );
-                    SetFloorStatus("Longitude" + latitude + "Longitude" + longtitude);
+                    SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
+                    SetLocationStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
 
                 }
             }
