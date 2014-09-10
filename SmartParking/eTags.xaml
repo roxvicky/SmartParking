@@ -53,8 +53,6 @@
 				<TextBlock x:Name="LatitudeTextBlock"/>
 				<TextBlock x:Name="LongitudeTextBlock"/>
 				<TextBlock x:Name="StatusTextBlock"/>
-				<Popup/>
-                <phone:LongListSelector Height="100" Width="100"/>
             </StackPanel>
 
 		</Grid>

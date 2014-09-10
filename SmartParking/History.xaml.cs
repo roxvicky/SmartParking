@@ -13,23 +13,26 @@ using System.Data.Linq.Mapping;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Text;
-
+using System.Data.Linq;
 
 
 namespace SmartParking
 {
 
-
     public partial class History : PhoneApplicationPage
     {
-
+        private readonly HistoryDataContext historylog; 
         public History()
         {
             InitializeComponent();
+
            
         }
 
-       
+        public HistoryDataContext Log
+        {
+            get { return historylog; }
+        }
 
         public void createDB()
         {
@@ -68,8 +71,10 @@ namespace SmartParking
                 IQueryable<HistoryDB> query = from histoy in historylog.history select histoy;
                 HistoryList = query.ToList();
             }
-            return HistoryList;
+            return HistoryList ;
         }
+
+        
     }
 }
 

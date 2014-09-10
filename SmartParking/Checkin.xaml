@@ -36,11 +36,11 @@
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
 				<Image Source="NFC.png" Height="254"/>
-                <TextBlock x:Name="LogStatus" TextWrapping="Wrap"/>
+                <TextBlock x:Name="LogStatus" TextWrapping="Wrap" FontSize="36"/>
                 <TextBlock x:Name="FloorStatus" TextWrapping="Wrap" FontSize="36"/>
             </StackPanel>
 
-		</Grid>
+		</Grid> 
     </Grid>
 
 </phone:PhoneApplicationPage>
