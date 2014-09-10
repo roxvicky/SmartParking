@@ -7,10 +7,12 @@ using System.Data.Linq;
 
 namespace SmartParking
 {
+
     public class HistoryDataContext:DataContext
     {
-        public HistoryDataContext(string connectionPath)
-            : base(connectionPath)
+        public static string DBConnectionString = "Data Source=isostore:/History.sdf";
+        public HistoryDataContext(string DBConnectionString)
+            : base(DBConnectionString)
         {
     }
 
