@@ -38,7 +38,7 @@
 				<Image Source="NFC.png" Height="254"/>
                 <TextBlock TextWrapping="Wrap" Text="Status"/>
                 <TextBlock x:Name="LogStatus" TextWrapping="Wrap" Text="Wait for NFC" FontSize="36"/>
-                <TextBlock x:Name="LocationStatus" TextWrapping="Wrap" FontSize="36"/>
+                <TextBlock x:Name="FloorStatus" TextWrapping="Wrap" FontSize="36"/>
             </StackPanel>
 
 		</Grid>

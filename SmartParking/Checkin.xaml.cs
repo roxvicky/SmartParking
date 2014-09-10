@@ -47,9 +47,9 @@ namespace SmartParking
             Dispatcher.BeginInvoke(() => { if (LogStatus != null) LogStatus.Text = newStatus; });
         }
 
-        private void SetLocationStatus(string newStatus)
+        private void SetFloorStatus(string newStatus)
         {
-            Dispatcher.BeginInvoke(() => { if (LocationStatus != null) LocationStatus.Text = newStatus; });
+            Dispatcher.BeginInvoke(() => { if (FloorStatus != null) FloorStatus.Text = newStatus; });
         }
 
 
@@ -98,7 +98,7 @@ namespace SmartParking
 
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
-                    SetLocationStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
+                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
 
                 }
             }
