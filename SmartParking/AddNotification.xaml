@@ -58,10 +58,10 @@
                         <RadioButton Content="end of month" Height="72" HorizontalAlignment="Left" Margin="240,70,0,0" Name="endOfMonthRadioButton" VerticalAlignment="Top" GroupName="ScheduleInterval"/>
                         <RadioButton Content="yearly" Height="72" HorizontalAlignment="Left" Margin="240,140,0,0" Name="yearlyRadioButton" VerticalAlignment="Top" GroupName="ScheduleInterval"/>
                     </Grid>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Name="param1Label" Text="context parameter 1" VerticalAlignment="Top" />
+                   <!-- <TextBlock Height="30" HorizontalAlignment="Left" Name="param1Label" Text="context parameter 1" VerticalAlignment="Top" />
                     <TextBox Height="72" HorizontalAlignment="Left" Name="param1TextBox" Text="" VerticalAlignment="Top" Width="440" MaxLength="63"/>
                     <TextBlock Height="30" HorizontalAlignment="Left" Name="param2Label" Text="context parameter 2" VerticalAlignment="Top" />
-                    <TextBox Height="72" HorizontalAlignment="Left" Name="param2TextBox" Text="" VerticalAlignment="Top" Width="440" MaxLength="63"/>
+                    <TextBox Height="72" HorizontalAlignment="Left" Name="param2TextBox" Text="" VerticalAlignment="Top" Width="440" MaxLength="63"/> -->
 
                 </StackPanel>
             </ScrollViewer>
