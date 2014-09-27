@@ -6,8 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" xmlns:Toolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:Location="clr-namespace:System.Device.Location;assembly=System.Device"
-    x:Class="SmartParking.Findcar"
+    x:Class="SmartParking.MarkMyPoint"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -24,18 +23,19 @@
 
 		<!--TitlePanel contains the name of the application and page title-->
 		<StackPanel Grid.Row="0" Margin="12,17,0,28">
-			<TextBlock Text="Smart Parking" Style="{StaticResource PhoneTextNormalStyle}"/>
-			<TextBlock Text="Find my car" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+			<TextBlock Text="SmartParking" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBlock Text="Mark My Point" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
 		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-				<TextBlock TextWrapping="Wrap" FontSize="40" Text="Wher is my car" FontWeight="Bold" Foreground="Red"/>
-				<!--<TextBlock x:Name="Floor_fc" TextWrapping="Wrap" Text="Floor : " FontSize="29.333"/>
-				<TextBlock x:Name="Zone_fc" TextWrapping="Wrap" Text="Zone :" FontSize="29.333"/>-->
-                <TextBlock TextWrapping="Wrap" Text="Check on the maps"  FontSize="29.333"/>
-                <maps:Map Height="232" Tap="Map_Tap" PedestrianFeaturesEnabled="True" LandmarksEnabled="True" ColorMode="Dark"/>
+				<TextBlock x:Name="where" TextWrapping="Wrap" Text="Where is my location?" FontSize="29.333"/>
+                <TextBlock x:Name="Latitude" TextWrapping="Wrap" FontSize="29.333" Text="Latitude :"/>
+				<TextBlock x:Name="Longtitude" TextWrapping="Wrap" Text="Longtitude :" FontSize="29.333"/>
+                <TextBlock x:Name="StatusTextBlock" TextWrapping="Wrap" />
+                <maps:Map  x:Name="MyMap" Height="270" LandmarksEnabled="True" ColorMode="Dark" ZoomLevel="10" CenterChanged="MyMap_CenterChanged"/>
+                <Button x:Name="OneShotLocationButton" Content="Find my location" Click="OneShotLocation_Click"/>
 			</StackPanel>
 
 		</Grid>

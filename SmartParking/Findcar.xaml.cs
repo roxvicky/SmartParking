@@ -20,8 +20,15 @@ namespace SmartParking
 
         public Findcar()
         {
-            //  InitializeComponent();
-              LaunchMap(Checkin.Latitud_do, Checkin.Longtitude_do, 20);
+       
+            InitializeComponent();
+            //Floor_fc.Text = "Floor :" + Checkin.Floor_st;
+            //Console.WriteLine(Floor_fc.Text);
+            //Zone_fc.Text = "Zone :" + Checkin.Zone_st;
+            
+              
+           
+              
         }
 
         public static void LaunchMap(double latitude, double longitude, int zoom)
@@ -38,7 +45,15 @@ namespace SmartParking
 
         }
 
+        private void Map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            LaunchMap(Checkin.Latitud_do, Checkin.Longtitude_do, 20);
+            // TODO: Add event handler implementation here.
+        }
 
+        
+
+   
         
 
     }

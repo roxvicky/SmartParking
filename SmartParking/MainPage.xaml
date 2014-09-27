@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     x:Class="SmartParking.MainPage"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -23,13 +24,14 @@
     </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="535"/>
-        </Grid.RowDefinitions>
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="199"/>
+			<RowDefinition Height="336"/>
+		</Grid.RowDefinitions>
 
-        <!-- LOCALIZATION NOTE:
+		<!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
             keys in the app's neutral language resource file (AppResources.resx) then
             replace the hard-coded text value between the attributes' quotation marks
@@ -48,62 +50,83 @@
             CurrentUICulture of the app at run time.
          -->
 
-        <!--Uncomment to see an alignment grid to help ensure your controls are
+		<!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to
             account for the System Tray. Set this to 0 (or remove the margin altogether)
             if the System Tray is hidden.
 
             Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+		<!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Alpha" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Smart Parking" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock Text="Alpha" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+			<TextBlock Text="Smart Parking" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
-            <Grid ShowGridLines="True" Margin="12,0,12,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="auto" MinHeight="170" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button Content="Checkin">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <ec:NavigateToPageAction TargetPage="/Checkin.xaml"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button Content="Find my car" Grid.Column="1" Grid.Row="0" >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <ec:NavigateToPageAction TargetPage="/Findcar.xaml"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button Content="Alarm" Grid.Row="1">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <ec:NavigateToPageAction TargetPage="/Alarmer.xaml"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button Content="History" Grid.Column="1" Grid.Row="1">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <ec:NavigateToPageAction TargetPage="/History.xaml"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-            </Grid>
-        </Grid>
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
+			<ScrollViewer HorizontalAlignment="Left" Height="756" VerticalAlignment="Top" Width="456" Margin="0,0,0,-221">
+				<Grid ShowGridLines="True" Height="1090" Width="432">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="199" />
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto" MinHeight="51" />
+						<RowDefinition Height="0*"/>
+						<RowDefinition Height="199"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="199*"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="336*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<toolkit:ImageButton ImageSource="Checkin..png" Height="206" Width="206" Grid.RowSpan="2" Content="Check in" HorizontalAlignment="Right" Margin="0,0,10,0">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ec:NavigateToPageAction TargetPage="/Checkin.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</toolkit:ImageButton>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,3,0,0" Grid.Row="2" Height="43" Width="206" FontSize="29.333" Text="Check in" TextAlignment="Center" Grid.RowSpan="2"/>
+					<toolkit:ImageButton Height="206" Width="206" Grid.Column="1" Grid.RowSpan="2" ImageSource="findmycar.png">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ec:NavigateToPageAction TargetPage="/Findcar.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</toolkit:ImageButton>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,3,0,0" Grid.Row="2" Height="43" Width="216" FontSize="29.333" Text="Find my Car" TextAlignment="Center" Grid.Column="1" Grid.RowSpan="2"/>
+					<toolkit:ImageButton Content="MarkLoca" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" ImageSource="marklocation.png" Height="211" Width="211" Margin="0,45,0,0" Grid.RowSpan="4">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ec:NavigateToPageAction TargetPage="/MarkMyPoint.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</toolkit:ImageButton>
+					<toolkit:ImageButton Content="Alarm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,45,0,0" Grid.Row="3" ImageSource="Alarm.png" Height="211" Width="211" Grid.Column="1" Grid.RowSpan="4">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ec:NavigateToPageAction TargetPage="/Alarmer.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</toolkit:ImageButton>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" Grid.Row="6" Height="43" Width="206" FontSize="29.333" Text="Alarm" TextAlignment="Center" Grid.Column="1"/>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="6" Height="43" Width="206" FontSize="29.333" Text="Mark my point" TextAlignment="Center"/>
+					<toolkit:ImageButton Content="ImageButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6" ImageSource="history.png" Height="216" Width="216" Grid.RowSpan="3" Margin="0,37,0,0">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ec:NavigateToPageAction TargetPage="/History.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</toolkit:ImageButton>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="8" Height="43" Width="206" FontSize="29.333" Text="History" TextAlignment="Center" Margin="0,0.5,0,0"/>
+				</Grid>
+			</ScrollViewer>
+		</Grid>
 
-    </Grid>
+	</Grid>
 
 </phone:PhoneApplicationPage>

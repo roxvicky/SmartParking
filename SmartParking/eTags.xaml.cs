@@ -40,8 +40,8 @@ namespace SmartParking
 
             if (_device != null)
             {
-                _device.DeviceArrived += ProximityDeviceArrived;
-                _device.DeviceDeparted += ProximityDeviceDeparted;
+                //_device.DeviceArrived += ProximityDeviceArrived;
+                //_device.DeviceDeparted += ProximityDeviceDeparted;
             }
             else
             {
@@ -55,17 +55,22 @@ namespace SmartParking
 
         public void ApplicationBarIconButton_Click(object sender, System.EventArgs e)
         {
+                     //if (_device == null) return;
+                     //// Make sure we're not already publishing another message
+                     //StopPublishingMessage(false);
             var str = TxtFloor.Text + "|" + TxtZone.Text + "|" + LatitudeTextBlock.Text + "|" + LongitudeTextBlock.Text;
-            var fRecord = new NdefTextRecord { Text = str, LanguageCode = "en-US" };
+            var record = new NdefTextRecord { Text = str, LanguageCode = "en-US" };
+            PublishRecord(record,true);
+          //  var msg = new NdefMessage {fRecord};
 
-            var msg = new NdefMessage {fRecord};
+            //_device.PublishBinaryMessage(
+            //    "NDEF:WriteTag",
+            //    msg.ToByteArray().AsBuffer(),
+            //    MessageWrittenHandler);
 
-            _device.PublishBinaryMessage(
-                "NDEF:WriteTag",
-                msg.ToByteArray().AsBuffer(),
-                MessageWrittenHandler);
+         //   SetStatusOutput("Message written");
 
-            SetStatusOutput("Message written");
+        //    StopPublishingMessage(true);
         }
        
 
@@ -74,55 +79,47 @@ namespace SmartParking
 
             Dispatcher.BeginInvoke(() => { if (StatusOutput != null) StatusOutput.Text = newStatus; } );
         }
-        private void StopPublishingMessage(bool writeToStatusOutput)
-        {
-            if (_publishingMessageId != 0 && _device != null)
-            {
-                // Stop publishing the message
-                _device.StopPublishingMessage(_publishingMessageId);
-                _publishingMessageId = 0;
-               // Update status text for UI - only if activated
-                if (writeToStatusOutput) SetStatusOutput(AppResources.StatusPublicationStopped);
-            }
-        }
-        private Windows.UI.Core.CoreDispatcher _dispatcher =
-     Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
 
-        private async void ProximityDeviceArrived(object sender)
-        {
-            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-            () =>
-            {
-                StatusOutput.Text += "Proximate device arrived.\n";
-            });
-        }
 
-        private async void ProximityDeviceDeparted(object sender)
-        {
-            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-            () =>
-            {
-                StatusOutput.Text += "Proximate device departed.\n";
-            });
-        }
+       
+     //   private Windows.UI.Core.CoreDispatcher _dispatcher =
+     //Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
 
-  //      private void PublishRecord(NdefRecord spRecord, bool writeToTag)
-  //      {
-  //          if (_device == null) return;
-  //          // Make sure we're not already publishing another message
-  //          StopPublishingMessage(false);
+     //   private async void ProximityDeviceArrived(object sender)
+     //   {
+     //       await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+     //       () =>
+     //       {
+     //           StatusOutput.Text += "Proximate device arrived.\n";
+     //       });
+     //   }
+
+     //   private async void ProximityDeviceDeparted(object sender)
+     //   {
+     //       await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+     //       () =>
+     //       {
+     //           StatusOutput.Text += "Proximate device departed.\n";
+     //       });
+     //   }
+
+        private void PublishRecord(NdefRecord record, bool writeToTag)
+        {
+            if (_device == null) return;
+            // Make sure we're not already publishing another message
+            StopPublishingMessage(false);
+            // Wrap the NDEF record into an NDEF message
+            var message = new NdefMessage { record };
+            // Convert the NDEF message to a byte array
+            var msgArray = message.ToByteArray();
+            // Publish the NDEF message to a tag or to another device, depending on the writeToTag parameter
+            // Save the publication ID so that we can cancel publication later
+            _publishingMessageId = _device.PublishBinaryMessage((writeToTag ? "NDEF:WriteTag" : "NDEF"), msgArray.AsBuffer(), MessageWrittenHandler);
+            // Update status text for UI
+           //_publishingMessageId = -1;
+            SetStatusOutput(string.Format((writeToTag ? AppResources.StatusWriteToTag : AppResources.StatusWriteToDevice), msgArray.Length, _publishingMessageId));
            
-  //          // Wrap the NDEF record into an NDEF message
-  //          var msg = new NdefMessage { spRecord };
-  //          // Convert the NDEF message to a byte array
-  ////          var msg = NdefMessage.ToByteArray();
-  //          // Publish the NDEF message to a tag or to another device, depending on the writeToTag parameter
-  //          // Save the publication ID so that we can cancel publication later
-  //          _publishingMessageId = _device.PublishBinaryMessage(("NDEF:WriteTag"), msg.ToByteArray().AsBuffer(), MessageWrittenHandler);
-  //          // Update status text for UI
-  //          SetStatusOutput(string.Format((writeToTag ? AppResources.StatusWriteToTag : AppResources.StatusWriteToDevice),  _publishingMessageId));
-
-  //      }
+        }
         private void MessageWrittenHandler(ProximityDevice sender, long messageId)
         {
             // Message was written successfully - inform the user
@@ -130,15 +127,26 @@ namespace SmartParking
             StopPublishingMessage(false);
 
             //Update status text for UI
-            SetStatusOutput(AppResources.StatusMessageWritten);
+            SetStatusOutput("Message Written");
 
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+
+        }
+        private void StopPublishingMessage(bool writeToStatusOutput)
+        {
+            if (_publishingMessageId != 0 && _device != null)
+            {
+                // Stop publishing the message
+                _device.StopPublishingMessage(_publishingMessageId);
+                _publishingMessageId = 0;
+                // Update status text for UI - only if activated
+                if (writeToStatusOutput) SetStatusOutput("Publish stop");
+            }
         }
 
+    
         private async void OneShotLocation_Click(object sender, RoutedEventArgs e)
         {
 

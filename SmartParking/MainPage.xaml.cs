@@ -37,6 +37,11 @@ namespace SmartParking
         	NavigationService.Navigate(new Uri("/eTags.xaml", UriKind.Relative));// TODO: Add event handler implementation here.
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{

@@ -78,7 +78,7 @@ namespace SmartParking
             // Create a Uri for the page that will be launched if the user
             // taps on the reminder. Use query string parameters to pass 
             // content to the page that is launched.
-            string param1Value = param1TextBox.Text;
+            /*string param1Value = param1TextBox.Text;
             string param2Value = param2TextBox.Text;
             string queryString = "";
             if (param1Value != "" && param2Value != "")
@@ -90,7 +90,7 @@ namespace SmartParking
                 queryString = (param1Value != null) ? "?param1=" + param1Value : "?param2=" + param2Value;
             }
 
-            Uri navigationUri = new Uri("/ShowParams.xaml" + queryString, UriKind.Relative);
+            Uri navigationUri = new Uri("/ShowParams.xaml" + queryString, UriKind.Relative);*/
 
             if ((bool)reminderRadioButton.IsChecked)
             {
@@ -100,7 +100,7 @@ namespace SmartParking
                 reminder.BeginTime = beginTime;
                 reminder.ExpirationTime = expirationTime;
                 reminder.RecurrenceType = recurrence;
-                reminder.NavigationUri = navigationUri;
+                //reminder.NavigationUri = navigationUri;
 
                 // Register the reminder with the system.
                 ScheduledActionService.Add(reminder);
