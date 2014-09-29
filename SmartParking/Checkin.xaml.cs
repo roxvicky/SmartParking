@@ -42,8 +42,6 @@ namespace SmartParking
         {
             InitializeProximityDevice();
             InitializeComponent();
-            
-
         }
 
         private void SetLogStatus(string newStatus)
@@ -54,6 +52,7 @@ namespace SmartParking
         private void SetFloorStatus(string newStatus)
         {
             Dispatcher.BeginInvoke(() => { if (FloorStatus != null) FloorStatus.Text = newStatus; });
+            
         }
 
 
@@ -90,20 +89,18 @@ namespace SmartParking
                 {
                     // Convert and extract URI info
                     var textRecord = new NdefTextRecord(record);
-                    //var str = textRecord.Text;
                     string[] str = textRecord.Text.Split('|');
 
-                    var latitude = str[2];
-                    Latitud_do = double.Parse(latitude);
-                    var longtitude = str[3];
-                    Longtitude_do = double.Parse(longtitude);
                     var Floor_st = str[0];
                     var Zone_st = str[1];
-
+                    var latitude = str[2];
+                    var longtitude = str[3];
+                    Latitud_do = double.Parse(latitude);
+                    Longtitude_do = double.Parse(longtitude);
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
                     SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    
+                    store.AddDb();
                     
                 }
             }

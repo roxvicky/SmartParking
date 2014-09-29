@@ -25,14 +25,7 @@ namespace SmartParking
 
 
         {
-
-            using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
-            {
-                if (historylog.DatabaseExists() == false)
-                {
-                    historylog.CreateDatabase();
-                }
-            }
+            
 
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;

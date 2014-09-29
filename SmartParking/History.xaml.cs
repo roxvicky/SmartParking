@@ -18,6 +18,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
 using System.Diagnostics;
+using SQLite;
 
 
 
@@ -26,127 +27,65 @@ using System.Diagnostics;
 namespace SmartParking
 {
 
-    public partial class History : PhoneApplicationPage ,INotifyPropertyChanged
-    {
-        private HistoryDataContext ToDoHistoryLog;
-        private String z;
-        private String f;
-        private Double lt;
-        private Double lg;
+    public partial class History : PhoneApplicationPage{
+        string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+        private string floor_db { get; set; }
+        private string zone_db { get; set; }
+        private double latitude_db { get; set; }
+        private double longtitude_db { get; set; }
 
-        private ObservableCollection<HistoryDB> _ToDoHistory;
-        public ObservableCollection<HistoryDB> HistoryItems
-        {
-            get
-            {
-                return _ToDoHistory;
-            }
-            set
-            {
-                if(_ToDoHistory != value){
-                    _ToDoHistory = value;
-                    NotifyPropertyChanged("HistoryDbs");
-                }
-            }
-        }
         public History()
         {
-            
+
             InitializeComponent();
 
-           // debug();
-           createDB();
-            
         }
 
-        
-
-        public void createDB()
+        public void updateDB()
         {
-            //Debug.WriteLine(z);
-            ToDoHistoryLog = new HistoryDataContext(HistoryDataContext.DBConnectionString);
-            this.DataContext = this;
-            var HistoryInDB = from HistoryDB todo in ToDoHistoryLog.ToDoHistory select todo;
 
+            using (var db = new SQLiteConnection(dbPath))
+            {
+                var existing = db.Query<historyTableSQlite>("select * from historyTableSQlite").FirstOrDefault();
+                if (existing != null)
+                {
+                    existing.Floor = floor_db;
+                    existing.Zone = zone_db;
+                    existing.latitude = latitude_db;
+                    existing.longtitude = longtitude_db;
+                    db.RunInTransaction(() =>
+                    {
+                        db.Update(existing);
+                    });
+                }
+            }
 
-            //HistoryItems = new ObservableCollection<HistoryDB>();
-            HistoryItems = new ObservableCollection<HistoryDB>(HistoryInDB);
-            
-            //  Debug.WriteLine(HistoryItems);
-            ListData.ItemsSource = HistoryItems;
-            AddDb();
-            //base.OnNavigatedFrom(e);
 
         }
+
+
 
         public void AddDb()
         {
-            HistoryDB a = new HistoryDB
+            using (var db = new SQLiteConnection(dbPath))
             {
-
-                //Date = DateTime.Now.ToShortDateString(),
-                //Time = DateTime.Now.ToString("HH:mm ss tt"),
-                //Zone =  Checkin.Zone_st,
-                //Floor = Checkin.Floor_st,
-                //location_latitude = Checkin.Latitud_do,
-                //location_longtitude = Checkin.Longtitude_do
-                
-            };
-            HistoryItems.Add(a);
-            ToDoHistoryLog.ToDoHistory.InsertOnSubmit(a);
-            ToDoHistoryLog.SubmitChanges();
-            //GetHistoryLog();
-        }
-
-        //public IList<HistoryDB> GetHistoryLog()
-        //{
-        //    IList<HistoryDB> HistoryList = null;
-        //    using (HistoryDataContext historylog = new HistoryDataContext(HistoryDataContext.DBConnectionString))
-        //    {
-        //        IQueryable<HistoryDB> query = from history in historylog.ToDoHistory select history;
-        //        HistoryList = query.ToList();
-        //    }
-        //    return HistoryList;
-        //}
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Used to notify the app that a property has changed.
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new historyTableSQlite()
+                    {
+                        Date = DateTime.Today.ToShortDateString(),
+                        Time = DateTime.Now.ToShortTimeString(),
+                        Floor = floor_db,
+                        Zone = zone_db,
+                        longtitude = longtitude_db,
+                        latitude = latitude_db
+                    });
+                });
             }
-        }
 
-        public void setZone(String zone)
-        {
-            this.z = zone;
-        }
 
-        public void setFloor(String floor)
-        {
-            this.f = floor;
-        }
 
-        public void setLatitute(Double lt)
-        {
-            this.lt = lt;
-        }
 
-        public void setLongtitute(Double lg)
-        {
-            this.lg = lg;
-        }
-
-        public void debug()
-        {
-            Debug.WriteLine("Zone: " + z); 
         }
     }
 }
-
-    
-
-
-

@@ -37,19 +37,10 @@
         </StackPanel>
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox x:Name="ListData" Margin="0,10,0,28"> 
+            <ListBox x:Name="ListData" SelectionMode="Multiple"> 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch" >
-                       <!--     <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>-->
-                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Date}" TextWrapping="Wrap" />
                                 <TextBlock Text="{Binding Time}"  TextWrapping="Wrap" />
                                 <TextBlock Text="{Binding Zone}"  TextWrapping="Wrap"/>
@@ -57,11 +48,10 @@
                                 <TextBlock Text="{Binding location_latitude}" TextWrapping="Wrap"  />
                                 <TextBlock Text="{Binding location_longitude}" TextWrapping="Wrap" />
                             </StackPanel>
-                        </Grid>
-                    </DataTemplate>
+                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        	
+            
         </Grid>
     </Grid>
 
