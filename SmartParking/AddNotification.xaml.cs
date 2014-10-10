@@ -28,8 +28,8 @@ namespace SmartParking
 
             // Get the begin time for the notification by combining the DatePicker
             // value and the TimePicker value.
-            DateTime date = (DateTime)beginDatePicker.Value;
-            DateTime time = (DateTime)beginTimePicker.Value;
+            DateTime date = DateTime.Today;
+            DateTime time = DateTime.Now;
             DateTime beginTime = date + time.TimeOfDay;
 
             // Make sure that the begin time has not already passed.
@@ -52,27 +52,27 @@ namespace SmartParking
             }
 
             // Determine which recurrence radio button is checked.
-            RecurrenceInterval recurrence = RecurrenceInterval.None;
-            if (dailyRadioButton.IsChecked == true)
-            {
-                recurrence = RecurrenceInterval.Daily;
-            }
-            else if (weeklyRadioButton.IsChecked == true)
-            {
-                recurrence = RecurrenceInterval.Weekly;
-            }
-            else if (monthlyRadioButton.IsChecked == true)
-            {
-                recurrence = RecurrenceInterval.Monthly;
-            }
-            else if (endOfMonthRadioButton.IsChecked == true)
-            {
-                recurrence = RecurrenceInterval.EndOfMonth;
-            }
-            else if (yearlyRadioButton.IsChecked == true)
-            {
-                recurrence = RecurrenceInterval.Yearly;
-            }
+            //RecurrenceInterval recurrence = RecurrenceInterval.None;
+            //if (dailyRadioButton.IsChecked == true)
+            //{
+            //    recurrence = RecurrenceInterval.Daily;
+            //}
+            //else if (weeklyRadioButton.IsChecked == true)
+            //{
+            //    recurrence = RecurrenceInterval.Weekly;
+            //}
+            //else if (monthlyRadioButton.IsChecked == true)
+            //{
+            //    recurrence = RecurrenceInterval.Monthly;
+            //}
+            //else if (endOfMonthRadioButton.IsChecked == true)
+            //{
+            //    recurrence = RecurrenceInterval.EndOfMonth;
+            //}
+            //else if (yearlyRadioButton.IsChecked == true)
+            //{
+            //    recurrence = RecurrenceInterval.Yearly;
+            //}
 
 
             // Create a Uri for the page that will be launched if the user
@@ -99,7 +99,7 @@ namespace SmartParking
                 reminder.Content = contentTextBox.Text;
                 reminder.BeginTime = beginTime;
                 reminder.ExpirationTime = expirationTime;
-                reminder.RecurrenceType = recurrence;
+                //reminder.RecurrenceType = recurrence;
                 //reminder.NavigationUri = navigationUri;
 
                 // Register the reminder with the system.
@@ -112,7 +112,7 @@ namespace SmartParking
                 alarm.Sound = new Uri("/Ringtones/Ring01.wma", UriKind.Relative);
                 alarm.BeginTime = beginTime;
                 alarm.ExpirationTime = expirationTime;
-                alarm.RecurrenceType = recurrence;
+                //alarm.RecurrenceType = recurrence;
 
                 ScheduledActionService.Add(alarm);
             }

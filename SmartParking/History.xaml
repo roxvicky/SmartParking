@@ -37,7 +37,7 @@
         </StackPanel>
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox x:Name="ListData" SelectionMode="Multiple"> 
+            <!--<ListBox x:Name="ListData" SelectionMode="Multiple"> 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -50,7 +50,11 @@
                             </StackPanel>
                      </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListBox>-->
+            <Grid x:Name="HistoryF" Grid.Column="7">
+                <TextBlock x:Name="textHis"></TextBlock>
+            </Grid>
+            
             
         </Grid>
     </Grid>

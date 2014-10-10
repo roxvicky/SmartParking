@@ -29,19 +29,17 @@ namespace SmartParking
 
     public partial class History : PhoneApplicationPage{
         string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
-        private string floor_db { get; set; }
-        private string zone_db { get; set; }
-        private double latitude_db { get; set; }
-        private double longtitude_db { get; set; }
 
         public History()
         {
 
             InitializeComponent();
+      
+            
 
         }
 
-        public void updateDB()
+        public void updateDB(string fl,string zo,double la, double lo)
         {
 
             using (var db = new SQLiteConnection(dbPath))
@@ -49,23 +47,25 @@ namespace SmartParking
                 var existing = db.Query<historyTableSQlite>("select * from historyTableSQlite").FirstOrDefault();
                 if (existing != null)
                 {
-                    existing.Floor = floor_db;
-                    existing.Zone = zone_db;
-                    existing.latitude = latitude_db;
-                    existing.longtitude = longtitude_db;
+                    existing.Floor = fl;
+                    existing.Zone = zo;
+                    existing.latitude = la;
+                    existing.longtitude = lo;
                     db.RunInTransaction(() =>
                     {
                         db.Update(existing);
                     });
                 }
+
+                
+          
+
             }
 
 
         }
 
-
-
-        public void AddDb()
+        public void AddDb(string fl, string zo, double la, double lo)
         {
             using (var db = new SQLiteConnection(dbPath))
             {
@@ -75,13 +75,16 @@ namespace SmartParking
                     {
                         Date = DateTime.Today.ToShortDateString(),
                         Time = DateTime.Now.ToShortTimeString(),
-                        Floor = floor_db,
-                        Zone = zone_db,
-                        longtitude = longtitude_db,
-                        latitude = latitude_db
+                        Floor = fl,
+                        Zone = zo,
+                        longtitude = la,
+                        latitude = lo
                     });
+                    Debug.WriteLine(db);
                 });
+                
             }
+           
 
 
 

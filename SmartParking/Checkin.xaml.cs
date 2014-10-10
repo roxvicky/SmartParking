@@ -97,11 +97,14 @@ namespace SmartParking
                     var longtitude = str[3];
                     Latitud_do = double.Parse(latitude);
                     Longtitude_do = double.Parse(longtitude);
+                    
+                    
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
                     SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    store.AddDb();
-                    
+                    //store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
+
+                  
                 }
             }
           }

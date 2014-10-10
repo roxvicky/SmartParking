@@ -52,7 +52,7 @@
                                         <TextBlock Text="expiration "/>
                                         <TextBlock Text="{Binding ExpirationTime}" HorizontalAlignment="Right"/>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
+                                    <!--<StackPanel Orientation="Horizontal">
                                         <TextBlock Text="recurrence "/>
                                         <TextBlock Text="{Binding RecurrenceType}" HorizontalAlignment="Right"/>
                                     </StackPanel>
@@ -60,7 +60,7 @@
                                         <TextBlock Text="is scheduled? "/>
                                         <TextBlock Text="{Binding IsScheduled}" HorizontalAlignment="Right"/>
 
-                                    </StackPanel>
+                                    </StackPanel>-->
 
                                 </StackPanel>
 
