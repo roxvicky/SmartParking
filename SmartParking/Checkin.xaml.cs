@@ -102,7 +102,7 @@ namespace SmartParking
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
                     SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    //store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
+                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
 
                   
                 }

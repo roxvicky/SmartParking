@@ -20,53 +20,49 @@ using Windows.Storage;
 using System.Diagnostics;
 using SQLite;
 
-
-
-
-
 namespace SmartParking
 {
 
     public partial class History : PhoneApplicationPage{
+
         string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
 
         public History()
         {
 
-            InitializeComponent();
-      
-            
+            InitializeComponent();     
 
         }
 
-        public void updateDB(string fl,string zo,double la, double lo)
-        {
+        //public void updateDB(string fl,string zo,double la, double lo)
+        //{
 
-            using (var db = new SQLiteConnection(dbPath))
-            {
-                var existing = db.Query<historyTableSQlite>("select * from historyTableSQlite").FirstOrDefault();
-                if (existing != null)
-                {
-                    existing.Floor = fl;
-                    existing.Zone = zo;
-                    existing.latitude = la;
-                    existing.longtitude = lo;
-                    db.RunInTransaction(() =>
-                    {
-                        db.Update(existing);
-                    });
-                }
+        //    using (var db = new SQLiteConnection(dbPath))
+        //    {
+        //        var existing = db.Query<historyTableSQlite>("select * from historyTableSQlite").FirstOrDefault();
+        //        if (existing != null)
+        //        {
+        //            existing.Floor = fl;
+        //            existing.Zone = zo;
+        //            existing.latitude = la;
+        //            existing.longtitude = lo;
+        //            db.RunInTransaction(() =>
+        //            {
+        //                db.Update(existing);
+        //            });
+        //        }
 
                 
           
 
-            }
+        //    }
 
 
-        }
+        //}
 
         public void AddDb(string fl, string zo, double la, double lo)
         {
+            string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
             using (var db = new SQLiteConnection(dbPath))
             {
                 db.RunInTransaction(() =>

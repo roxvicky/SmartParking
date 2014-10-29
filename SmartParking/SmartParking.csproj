@@ -120,6 +120,7 @@
     <Compile Include="Checkin.xaml.cs">
       <DependentUpon>Checkin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DbHelper.cs" />
     <Compile Include="eTags.xaml.cs">
       <DependentUpon>eTags.xaml</DependentUpon>
     </Compile>
