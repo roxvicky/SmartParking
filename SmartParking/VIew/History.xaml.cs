@@ -78,7 +78,7 @@ namespace SmartParking
         public void Delete_Click(object sender, EventArgs e)
             
         {
-            if(ListData.SelectedIndex != -1)
+            DbHelper Db_helper = new DbHelper();
             Db_helper.DeleteContact(Selected_HistoryId);
         }
 
