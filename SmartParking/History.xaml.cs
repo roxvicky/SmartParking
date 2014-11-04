@@ -34,31 +34,6 @@ namespace SmartParking
 
         }
 
-        //public void updateDB(string fl,string zo,double la, double lo)
-        //{
-
-        //    using (var db = new SQLiteConnection(dbPath))
-        //    {
-        //        var existing = db.Query<historyTableSQlite>("select * from historyTableSQlite").FirstOrDefault();
-        //        if (existing != null)
-        //        {
-        //            existing.Floor = fl;
-        //            existing.Zone = zo;
-        //            existing.latitude = la;
-        //            existing.longtitude = lo;
-        //            db.RunInTransaction(() =>
-        //            {
-        //                db.Update(existing);
-        //            });
-        //        }
-
-                
-          
-
-        //    }
-
-
-        //}
 
         public void AddDb(string fl, string zo, double la, double lo)
         {
