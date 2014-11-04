@@ -16,9 +16,9 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem IsEnabled="True" Text="Delete all"/>
+                <shell:ApplicationBarMenuItem IsEnabled="True" Text="Delete all" Click="DeleteAll_Click"/>
             </shell:ApplicationBar.MenuItems>
-            <shell:ApplicationBarIconButton IconUri="/Assets7/AppBar/delete.png" IsEnabled="True" Text="Delete"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets7/AppBar/delete.png" IsEnabled="True" Text="Delete" Click="Delete_Click" />
             <shell:ApplicationBarIconButton IconUri="/Assets8/AppBar/feature.search.png" IsEnabled="True" Text="Search"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
@@ -37,9 +37,10 @@
         </StackPanel>
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <!--<ListBox x:Name="ListData" SelectionMode="Multiple"> 
+            <ListBox x:Name="ListData" SelectionChanged="ListData_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
+<<<<<<< HEAD:SmartParking/History.xaml
                                 <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Date}" TextWrapping="Wrap" />
                                 <TextBlock Text="{Binding Time}"  TextWrapping="Wrap" />
@@ -49,13 +50,19 @@
                                 <TextBlock Text="{Binding longtitude}" TextWrapping="Wrap" />
                             </StackPanel>
                      </DataTemplate>
+=======
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name=  "DateTxt"  Text="{Binding Date}"   TextWrapping="Wrap" />
+                            <TextBlock x:Name=  "TimeTxt"  Text="{Binding Time}"  TextWrapping="Wrap" />
+                            <TextBlock x:Name=  "ZoneTxt"  Text="{Binding Zone}"  TextWrapping="Wrap"/>
+                            <TextBlock x:Name=  "FloorTxt" Text="{Binding Floor}" TextWrapping="Wrap"/>
+                            <TextBlock x:Name=  "LatTxt"   Text="{Binding latitude}" TextWrapping="Wrap"  />
+                            <TextBlock x:Name=  "LongTxt"  Text="{Binding longtitude}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </DataTemplate>
+>>>>>>> origin/master:SmartParking/VIew/History.xaml
                 </ListBox.ItemTemplate>
-            </ListBox>-->
-            <Grid x:Name="HistoryF" Grid.Column="7">
-                <TextBlock x:Name="textHis"></TextBlock>
-            </Grid>
-            
-            
+            </ListBox>
         </Grid>
     </Grid>
 
