@@ -23,7 +23,6 @@ using System.IO.IsolatedStorage;
 using Windows.Devices;
 
 
-
 namespace SmartParking
 {
     public partial class eTags : PhoneApplicationPage

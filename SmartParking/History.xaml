@@ -1,0 +1,120 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SmartParking.History"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"   
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem IsEnabled="True" Text="Delete all"/>
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton IconUri="/Assets7/AppBar/delete.png" IsEnabled="True" Text="Delete"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets8/AppBar/feature.search.png" IsEnabled="True" Text="Search"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Smart Parking" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="History" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <!--<ListBox x:Name="ListData" SelectionMode="Multiple"> 
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/VIew/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+                                <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Date}" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding Time}"  TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding Zone}"  TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Floor}" TextWrapping="Wrap"/>
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/VIew/History.xaml
+                                <TextBlock Text="{Binding latitude}" TextWrapping="Wrap"  />
+                                <TextBlock Text="{Binding longtitude}" TextWrapping="Wrap" />
+                            </StackPanel>
+                     </DataTemplate>
+=======
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name=  "DateTxt"  Text="{Binding Date}"   TextWrapping="Wrap" />
+                            <TextBlock x:Name=  "TimeTxt"  Text="{Binding Time}"  TextWrapping="Wrap" />
+                            <TextBlock x:Name=  "ZoneTxt"  Text="{Binding Zone}"  TextWrapping="Wrap"/>
+                            <TextBlock x:Name=  "FloorTxt" Text="{Binding Floor}" TextWrapping="Wrap"/>
+                            <TextBlock x:Name=  "LatTxt"   Text="{Binding latitude}" TextWrapping="Wrap"  />
+                            <TextBlock x:Name=  "LongTxt"  Text="{Binding longtitude}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </DataTemplate>
+>>>>>>> origin/master:SmartParking/VIew/History.xaml
+=======
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+                                <TextBlock Text="{Binding location_latitude}" TextWrapping="Wrap"  />
+                                <TextBlock Text="{Binding location_longitude}" TextWrapping="Wrap" />
+                            </StackPanel>
+                     </DataTemplate>
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+            <Grid x:Name="HistoryF" Grid.Column="7">
+                <TextBlock x:Name="textHis"></TextBlock>
+            </Grid>
+            
+            
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
