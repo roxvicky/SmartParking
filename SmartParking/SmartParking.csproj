@@ -120,18 +120,17 @@
     <Compile Include="Checkin.xaml.cs">
       <DependentUpon>Checkin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ReadAllHistoryList.cs" />
-    <Compile Include="ViewModel\DbHelper.cs" />
+    <Compile Include="DbHelper.cs" />
     <Compile Include="eTags.xaml.cs">
       <DependentUpon>eTags.xaml</DependentUpon>
     </Compile>
     <Compile Include="Findcar.xaml.cs">
       <DependentUpon>Findcar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VIew\History.xaml.cs">
+    <Compile Include="History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\historyTableSQlite.cs" />
+    <Compile Include="historyTableSQlite.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -178,7 +177,7 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VIew\History.xaml">
+    <Page Include="History.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>

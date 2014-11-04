@@ -7,10 +7,15 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartParking.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
@@ -29,8 +34,30 @@ namespace SmartParking
     public partial class App : Application
     {
 
-        public static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite"));//DataBase Name 
-       
+        //public static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "ContactsManager.sqlite"));//DataBase Name 
+        //public App()
+        //{
+        //    if (!CheckFileExists("db.sqlite").Result)
+        //    {
+        //        using (var db = new SQLiteConnection(DB_PATH))
+        //        {
+        //            db.CreateTable<historyTableSQlite>();
+        //        }
+        //    }
+        //}
+
+        //private async Task<bool> CheckFileExists(string fileName)
+        //{
+        //    try
+        //    {
+        //        var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    return false;
+        //}
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -41,16 +68,9 @@ namespace SmartParking
         /// Constructor for the Application object.
         /// </summary>
         public App()
+
+
         {
-            if (!CheckFileExists("db.sqlite").Result)
-            {
-                using (var db = new SQLiteConnection(DB_PATH))
-                {
-                    db.CreateTable<historyTableSQlite>();
-                }
-            }  
-
-
             
 
             // Global handler for uncaught exceptions.
@@ -87,19 +107,6 @@ namespace SmartParking
 
         }
 
-
-        public async Task<bool> CheckFileExists(string fileName) 
-        { 
-            try 
-            { 
-                var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName); 
-                return true; 
-            } 
-            catch 
-            { 
-            } 
-            return false; 
-        }
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
