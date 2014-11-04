@@ -45,48 +45,12 @@ namespace SmartParking
         public static string Floor_st { get; set; }
         public static string Zone_st { get; set; }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        DbHelper DB_helper = new DbHelper();
-        History His = new History();
-        
-=======
         History store = new History();
->>>>>>> origin/master
-=======
-        History store = new History();
->>>>>>> parent of 3494e9d... update
-=======
-        History store = new History();
->>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
-=======
-        History store = new History();
->>>>>>> parent of 3494e9d... update
-        
-
         public Checkin()
         {
             InitializeProximityDevice();
             InitializeComponent();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            //DB_helper.AddInfo();
-            //His.ReadHistoryList_Loaded();
-            
-            
-            
-=======
->>>>>>> origin/master
-=======
->>>>>>> parent of 3494e9d... update
-=======
->>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
-=======
->>>>>>> parent of 3494e9d... update
+
         }
 
         private void SetLogStatus(string newStatus)
@@ -97,6 +61,7 @@ namespace SmartParking
         private void SetFloorStatus(string newStatus)
         {
             Dispatcher.BeginInvoke(() => { if (FloorStatus != null) FloorStatus.Text = newStatus; });
+<<<<<<< HEAD
             
 =======
         private long _publishingMessageId;
@@ -124,6 +89,9 @@ namespace SmartParking
         {
             Dispatcher.BeginInvoke(() => { if (LogStatus != null) LogStatus.Text = newStatus; });
 >>>>>>> parent of 7526fbb... remove second record
+=======
+
+>>>>>>> origin/master
         }
 
 
@@ -154,27 +122,13 @@ namespace SmartParking
 
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     
-
-=======
->>>>>>> origin/master
-=======
->>>>>>> parent of 3494e9d... update
-=======
->>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
-=======
->>>>>>> parent of 3494e9d... update
 
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
             var rawMsg = message.Data.ToArray();
             var ndefMessage = NdefMessage.FromByteArray(rawMsg);
 
-         
+
             ////// Loop over all records contained in the NDEF message
             foreach (NdefRecord record in ndefMessage)
             {
@@ -191,42 +145,16 @@ namespace SmartParking
                     var longtitude = str[3];
                     Latitud_do = double.Parse(latitude);
                     Longtitude_do = double.Parse(longtitude);
-                    
-                    
-      
-                    SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
+
+                    SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st);
                     SetFloorStatus("Latitude: " + latitude + "   Longitude: " + longtitude);
-                   // DB_helper.AddInfo();
-                    //His.ReadHistoryList_Loaded();
-                    //store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
-                   // DB_helper.AddInfo(Floor_st, Zone_st, Latitude_do, Longtitude_do);
-=======
-                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
                     store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
 
->>>>>>> origin/master
-=======
-                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
-
->>>>>>> parent of 3494e9d... update
-=======
-                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
-
->>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
-=======
-                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
-
->>>>>>> parent of 3494e9d... update
-                  
                 }
             }
+<<<<<<< HEAD
           }
      }
 =======
@@ -289,10 +217,15 @@ namespace SmartParking
     }
               
 >>>>>>> parent of 7526fbb... remove second record
+=======
+        }
+    }
+>>>>>>> origin/master
 }
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
            //SetLogStatus(string.Format(AppResources.StatusTagParsed, tagContents));
@@ -346,3 +279,5 @@ namespace SmartParking
 
 >>>>>>> parent of 7526fbb... remove second record
 
+=======
+>>>>>>> origin/master
