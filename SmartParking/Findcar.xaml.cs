@@ -47,7 +47,7 @@ namespace SmartParking
 
         private void Map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            LaunchMap(Checkin.Latitud_do, Checkin.Longtitude_do, 20);
+            LaunchMap(Checkin.Latitude_do, Checkin.Longtitude_do, 20);
             // TODO: Add event handler implementation here.
         }
 

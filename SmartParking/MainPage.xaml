@@ -118,7 +118,7 @@
 					<toolkit:ImageButton Content="ImageButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6" ImageSource="history.png" Height="216" Width="216" Grid.RowSpan="3" Margin="0,37,0,0">
 						<i:Interaction.Triggers>
 							<i:EventTrigger EventName="Click">
-								<ec:NavigateToPageAction TargetPage="/History.xaml"/>
+								<ec:NavigateToPageAction TargetPage="/VIew/History.xaml"/>
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</toolkit:ImageButton>

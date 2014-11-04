@@ -120,17 +120,18 @@
     <Compile Include="Checkin.xaml.cs">
       <DependentUpon>Checkin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DbHelper.cs" />
+    <Compile Include="ViewModel\ReadAllHistoryList.cs" />
+    <Compile Include="ViewModel\DbHelper.cs" />
     <Compile Include="eTags.xaml.cs">
       <DependentUpon>eTags.xaml</DependentUpon>
     </Compile>
     <Compile Include="Findcar.xaml.cs">
       <DependentUpon>Findcar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="History.xaml.cs">
+    <Compile Include="VIew\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
-    <Compile Include="historyTableSQlite.cs" />
+    <Compile Include="Model\historyTableSQlite.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -177,7 +178,7 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="History.xaml">
+    <Page Include="VIew\History.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -336,6 +337,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.WP80, Version=3.8.6">
+      <Name>SQLite for Windows Phone</Name>
+    </SDKReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

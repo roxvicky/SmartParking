@@ -18,6 +18,7 @@ using System.Text;
 using Windows.Phone.PersonalInformation;
 using SmartParking.Resources;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 
 namespace SmartParking
@@ -28,20 +29,22 @@ namespace SmartParking
         private ProximityDevice _device;
         private long _subscriptionIdNdef;
 
-        public static double Latitud_do { get; set; }
+        public static double Latitude_do { get; set; }
         public static double Longtitude_do { get; set; }
-        public static string latitude { get; set; }
-        public static string longtitude { get; set; }
         public static string Floor_st { get; set; }
         public static string Zone_st { get; set; }
+        public static string a { get; set; }
+        public static string b { get; set; }
 
-        History store = new History();
+        DbHelper DB_helper = new DbHelper();
+        
         
 
         public Checkin()
         {
             InitializeProximityDevice();
             InitializeComponent();
+            Abcd();
         }
 
         private void SetLogStatus(string newStatus)
@@ -74,6 +77,19 @@ namespace SmartParking
 
         }
 
+        private void Abcd()
+        {
+            String txt = "my|name|is|Vicky";
+            String[] test = txt.Split('|');
+            a = test[0];
+            b = test[1];
+            Debug.WriteLine(a);
+            Debug.WriteLine(b);
+
+           
+
+        }
+
 
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
@@ -91,19 +107,24 @@ namespace SmartParking
                     var textRecord = new NdefTextRecord(record);
                     string[] str = textRecord.Text.Split('|');
 
-                    var Floor_st = str[0];
-                    var Zone_st = str[1];
+                    var floors = str[0];
+                    Debug.WriteLine(Floor_st);
+                    var zones = str[1];
+                    Debug.WriteLine(Zone_st);
                     var latitude = str[2];
                     var longtitude = str[3];
-                    Latitud_do = double.Parse(latitude);
+
+                    Floor_st = floors;
+                    Zone_st = zones;
+                    Latitude_do = double.Parse(latitude);
                     Longtitude_do = double.Parse(longtitude);
                     
                     
-      
+                    
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
-                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
-                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
-
+                    SetFloorStatus("Latitude: " + latitude + "   Longitude: " + longtitude);
+                    //store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
+                   // DB_helper.AddInfo(Floor_st, Zone_st, Latitude_do, Longtitude_do);
                   
                 }
             }
