@@ -45,8 +45,8 @@
                                 <TextBlock Text="{Binding Time}"  TextWrapping="Wrap" />
                                 <TextBlock Text="{Binding Zone}"  TextWrapping="Wrap"/>
                                 <TextBlock Text="{Binding Floor}" TextWrapping="Wrap"/>
-                                <TextBlock Text="{Binding location_latitude}" TextWrapping="Wrap"  />
-                                <TextBlock Text="{Binding location_longitude}" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding latitude}" TextWrapping="Wrap"  />
+                                <TextBlock Text="{Binding longtitude}" TextWrapping="Wrap" />
                             </StackPanel>
                      </DataTemplate>
                 </ListBox.ItemTemplate>

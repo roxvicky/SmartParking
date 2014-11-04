@@ -31,6 +31,9 @@ namespace SmartParking
             InitializeComponent();     
 
         }
+
+     
+
             string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "historydb.sqlite");
 
             public void AddDb()
@@ -42,11 +45,11 @@ namespace SmartParking
                         db.Insert(new historyTableSQlite()
                         {
                             Date = DateTime.Today.ToShortDateString(),
-                            Time = DateTime.Now.ToShortTimeString()
-                            //Floor = fl,
-                            //Zone = zo,
-                            //longtitude = la,
-                            //latitude = lo
+                            Time = DateTime.Now.ToShortTimeString(),
+                            Floor = Checkin.Floor_st,
+                            Zone = Checkin.Zone_st,
+                            longtitude = Checkin.Longtitude_do,
+                            latitude = Checkin.Latitud_do
                         });
                     });
 
