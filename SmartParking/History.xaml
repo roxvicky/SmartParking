@@ -42,8 +42,11 @@
                     <DataTemplate>
 <<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/VIew/History.xaml
 <<<<<<< HEAD:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
 =======
 >>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
 =======
@@ -55,6 +58,7 @@
                                 <TextBlock Text="{Binding Time}"  TextWrapping="Wrap" />
                                 <TextBlock Text="{Binding Zone}"  TextWrapping="Wrap"/>
                                 <TextBlock Text="{Binding Floor}" TextWrapping="Wrap"/>
+<<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/VIew/History.xaml
@@ -78,12 +82,17 @@
 >>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
 =======
 >>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
                                 <TextBlock Text="{Binding location_latitude}" TextWrapping="Wrap"  />
                                 <TextBlock Text="{Binding location_longitude}" TextWrapping="Wrap" />
                             </StackPanel>
                      </DataTemplate>
 <<<<<<< HEAD:SmartParking/History.xaml
 <<<<<<< HEAD:SmartParking/History.xaml
+<<<<<<< HEAD:SmartParking/History.xaml
+>>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
+=======
 >>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
 =======
 >>>>>>> parent of 3494e9d... update:SmartParking/History.xaml
