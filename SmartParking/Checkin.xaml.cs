@@ -37,6 +37,7 @@ namespace SmartParking
         public static string b { get; set; }
 
         DbHelper DB_helper = new DbHelper();
+        History His = new History();
         
         
 
@@ -44,7 +45,11 @@ namespace SmartParking
         {
             InitializeProximityDevice();
             InitializeComponent();
-            Abcd();
+            //DB_helper.AddInfo();
+            //His.ReadHistoryList_Loaded();
+            
+            
+            
         }
 
         private void SetLogStatus(string newStatus)
@@ -77,18 +82,7 @@ namespace SmartParking
 
         }
 
-        private void Abcd()
-        {
-            String txt = "my|name|is|Vicky";
-            String[] test = txt.Split('|');
-            a = test[0];
-            b = test[1];
-            Debug.WriteLine(a);
-            Debug.WriteLine(b);
-
-           
-
-        }
+     
 
 
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
@@ -123,6 +117,8 @@ namespace SmartParking
                     
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
                     SetFloorStatus("Latitude: " + latitude + "   Longitude: " + longtitude);
+                   // DB_helper.AddInfo();
+                    //His.ReadHistoryList_Loaded();
                     //store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
                    // DB_helper.AddInfo(Floor_st, Zone_st, Latitude_do, Longtitude_do);
                   

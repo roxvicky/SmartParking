@@ -27,7 +27,8 @@ namespace SmartParking
     {
         ObservableCollection<historyTableSQlite> DB_HistoryList = new ObservableCollection<historyTableSQlite>();
         DbHelper Db_helper = new DbHelper();
-        int Selected_HistoryId;
+        //int Selected_HistoryId;
+        public static int Selected_HistoryId { get; set; }
         
 
 
@@ -48,11 +49,7 @@ namespace SmartParking
             Db_helper.AddInfo();
             ReadHistoryList_Loaded();
             
-            //Debug.WriteLine(Checkin.Floor_st);
-            //Debug.WriteLine(Checkin.Zone_st);
-            //Debug.WriteLine(Checkin.Latitude_do);
-            //Debug.WriteLine(Checkin.Longtitude_do);
-
+            
           // Selected_HistoryId = int.Parse(NavigationContext.QueryString["SelectedHistoryID"]);
         }
 
@@ -71,15 +68,17 @@ namespace SmartParking
             if (ListData.SelectedIndex != -1)
             {
                 historyTableSQlite listitem = ListData.SelectedItem as historyTableSQlite;
-                 Selected_HistoryId = listitem.Id;
+                int Selected_HistoryId = listitem.Id;
             }
             
             
         
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void Delete_Click(object sender, EventArgs e)
+            
         {
+            if(ListData.SelectedIndex != -1)
             Db_helper.DeleteContact(Selected_HistoryId);
         }
 
