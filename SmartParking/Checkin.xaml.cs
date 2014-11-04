@@ -36,18 +36,23 @@ namespace SmartParking
         public static string Zone_st { get; set; }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         DbHelper DB_helper = new DbHelper();
         History His = new History();
         
 =======
         History store = new History();
 >>>>>>> origin/master
+=======
+        History store = new History();
+>>>>>>> parent of 3494e9d... update
         
 
         public Checkin()
         {
             InitializeProximityDevice();
             InitializeComponent();
+<<<<<<< HEAD
 <<<<<<< HEAD
             //DB_helper.AddInfo();
             //His.ReadHistoryList_Loaded();
@@ -56,6 +61,8 @@ namespace SmartParking
             
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 3494e9d... update
         }
 
         private void SetLogStatus(string newStatus)
@@ -89,10 +96,13 @@ namespace SmartParking
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
      
 
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 3494e9d... update
 
         private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
         {
@@ -121,6 +131,7 @@ namespace SmartParking
       
                     SetLogStatus("Floor: " + Floor_st + " Zone: " + Zone_st );
 <<<<<<< HEAD
+<<<<<<< HEAD
                     SetFloorStatus("Latitude: " + latitude + "   Longitude: " + longtitude);
                    // DB_helper.AddInfo();
                     //His.ReadHistoryList_Loaded();
@@ -131,6 +142,11 @@ namespace SmartParking
                     store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
 
 >>>>>>> origin/master
+=======
+                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
+                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
+
+>>>>>>> parent of 3494e9d... update
                   
                 }
             }
