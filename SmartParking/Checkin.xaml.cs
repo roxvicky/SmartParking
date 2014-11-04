@@ -42,6 +42,7 @@ namespace SmartParking
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         DbHelper DB_helper = new DbHelper();
         History His = new History();
         
@@ -54,6 +55,9 @@ namespace SmartParking
 =======
         History store = new History();
 >>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
+=======
+        History store = new History();
+>>>>>>> parent of 3494e9d... update
 =======
         History store = new History();
 >>>>>>> parent of 3494e9d... update
@@ -79,6 +83,7 @@ namespace SmartParking
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             //DB_helper.AddInfo();
             //His.ReadHistoryList_Loaded();
             
@@ -90,6 +95,8 @@ namespace SmartParking
 >>>>>>> parent of 3494e9d... update
 =======
 >>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
+=======
+>>>>>>> parent of 3494e9d... update
 =======
 >>>>>>> parent of 3494e9d... update
 =======
@@ -137,6 +144,7 @@ namespace SmartParking
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
      
 
 =======
@@ -145,6 +153,8 @@ namespace SmartParking
 >>>>>>> parent of 3494e9d... update
 =======
 >>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
+=======
+>>>>>>> parent of 3494e9d... update
 =======
 >>>>>>> parent of 3494e9d... update
 =======
@@ -187,6 +197,7 @@ namespace SmartParking
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     SetFloorStatus("Latitude: " + latitude + "   Longitude: " + longtitude);
                    // DB_helper.AddInfo();
                     //His.ReadHistoryList_Loaded();
@@ -207,6 +218,11 @@ namespace SmartParking
                     store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
 
 >>>>>>> 09f72465158335e3abaed6a5b570ed90672dbcd3
+=======
+                    SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
+                    store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
+
+>>>>>>> parent of 3494e9d... update
 =======
                     SetFloorStatus("Longitude: " + latitude + "   Longitude: " + longtitude);
                     store.AddDb(Floor_st, Zone_st, Latitud_do, Longtitude_do);
